@@ -8,7 +8,10 @@ import TaskList from "./components/TaskList";
 export default function Home() {
   const [tasks, setTasks] = useState<Task[]>([])
 
-  // Carregar tarefas do localStorage
+  // Atualiza "tasks" com o que está no localStorage;
+  // Este useEffect() é acionado uma vez a cada re-renderização;
+  // A cada chamada de setTasks (em qualquer lugar) ==>  a re-renderização desta página é acionada;
+  // Ou seja, a cada re-renderição desta página ==> "tasks" será igual a localStorage;
   useEffect(() => {
     const storedTasks = localStorage.getItem('tasks')
     if (storedTasks) {
@@ -16,7 +19,7 @@ export default function Home() {
     }
   }, [])
 
-  // Salvar sempre que tasks mudar
+  // "tasks" muda ==> localStorage é atualizado
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks))
   }, [tasks])

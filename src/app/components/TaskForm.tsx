@@ -11,7 +11,7 @@ const TaskForm = ({setTasks}: Props) => {
   const [title, setTitle] = useState('');
 
   const addTask = () => {
-    // Se estiver vazio ou apenas espaços retornar sem fazer nada
+    // Ao ser submetido, se o input estiver vazio ou apenas com espaços ==> retorna sem fazer nada
     if (!title.trim) return
 
     const newTask: Task = {
@@ -20,6 +20,7 @@ const TaskForm = ({setTasks}: Props) => {
       completed: false
     }
 
+    // Boa prática: Usar callback (prev => ...prev) ==> quando o novo estado (do array ou do objeto) depende do anterior 
     setTasks(prev => [...prev, newTask]);
     setTitle('');
   }
