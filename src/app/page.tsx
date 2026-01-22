@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Gerenciados de Tarefas</h1>
+      <h1>GERENCIADOR DE TAREFAS</h1>
       <TaskForm setTasks={setTasks} />
       <TaskList tasks={tasks} setTasks={setTasks} />
     </div>
